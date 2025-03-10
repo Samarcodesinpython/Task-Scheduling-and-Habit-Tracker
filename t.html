@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Dashboard</title>
+    <link rel="stylesheet" href="t.css">
+    <link rel="stylesheet" href="pomo.css">
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <h2>DashboarD</h2>
+            <nav>
+                <ul>
+                    <li>Profile</li>
+                    <li>Messages</li>
+                    <li>Friends</li>
+                    <li>Schedule</li>
+                    <li>Settings</li>
+
+                </ul>
+            </nav>
+        </aside>
+        <main>
+            <header>
+                <h1>All Task</h1>
+                <div class="filters">
+                    <select><option>Time</option></select>
+                    <select><option>Level</option></select>
+                    <select><option>Language</option></select>
+                    <select><option>Type</option></select>
+                </div>
+            </header>
+            <section class="courses">
+                <div class="course">
+                    <h3>Task name</h3>
+                    <p> Task in detail </p>
+                    <span>Created by Samar </span>
+                </div>
+                <div class="course">
+                    <h3>Task </h3>
+                    <p>Falana Dhimkana (task detail)</p>
+                    <span>Created by Harshita</span>
+                </div>
+                <div class="course">
+                    <h3>Task</h3>
+                    <p>a mimir</p>
+                    <span>Created by Priayanshu </span>
+                </div>
+            </section>
+        </main>
+        <aside class="right-panel">
+            <div class="pomodoro-timer">
+                <h1 class="title">Pomodoro Timer</h1>
+            
+                <div class="mode-buttons">
+                    <button class="mode active" data-mode="pomodoro">Pomodoro</button>
+                    <button class="mode" data-mode="short-break">Short Break</button>
+                    <button class="mode" data-mode="long-break">Long Break</button>
+                </div>
+            
+                <div class="timer-display">
+                    <span id="minutes">25</span>:<span id="seconds">00</span>
+                </div>
+            
+                <div class="timer-controls">
+                    <button id="start-pause">Start</button>
+                    <button id="reset">Reset</button>
+                    <button id="full">Go Fulls</button>
+                </div>
+            </div>
+            
+        </aside>
+    </div>
+    <script src="t.js"></script>
+</body>
+</html>

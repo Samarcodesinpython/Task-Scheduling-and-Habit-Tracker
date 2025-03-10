@@ -1,0 +1,158 @@
+:root {
+    --bg: #121212;
+    --sidebar: #1e1e1e;
+    --text: #ffffff;
+    --card-bg: #252525;
+    --accent: #9c27b0;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+}
+
+.dashboard {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    width: 250px;
+    background: var(--sidebar);
+    padding: 20px;
+    height: 100vh;
+}
+
+.sidebar h2 {
+    color: var(--accent);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filters select {
+    background: var(--card-bg);
+    color: var(--text);
+    border: none;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.courses {
+    display: flex;
+    flex-direction: column;
+}
+
+.course {
+    background: var(--card-bg);
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+
+.right-panel {
+    width: 300px;
+    padding: 20px;
+}
+.pomodoro-timer {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.timer-display {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 10px 0;
+    color: var(--text);
+}
+
+.timer-controls button {
+    background: var(--circle-checked);
+    color: var(--text);
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.timer-controls button:hover {
+    background: var(--tab-active);
+}
+.pomodoro-timer {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.timer-display {
+    font-size: 5rem; /* Increase size */
+    font-weight: bold;
+    margin: 10px 0;
+    color: var(--text);
+}
+
+.mode-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.mode {
+    background: none;
+    border: 2px solid var(--text);
+    color: var(--text);
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.mode.active {
+    background: var(--text);
+    color: var(--bg);
+}
+
+.timer-controls button {
+    background: var(--accent); /* Use accent color */
+    color: var(--text);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.timer-controls button:hover {
+    opacity: 0.8;
+}
+
+.spotify-link:hover {
+    background: #1DB954;
+    transform: scale(1.05);
+}
