@@ -116,6 +116,6 @@ This project is **open-source** under the [MIT License](LICENSE).
 
 ## **📞 Contact & Support**  
 
-📩 Email: Samarjamal326@gmail.com  
+📩 Email: Samarjamal326@gmail.com 
 
 ---
