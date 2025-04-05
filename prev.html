@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dark Mode Task Scheduler</title>
+  <style>
+    :root {
+      --bg: #121212;
+      --sidebar: #1e1e1e;
+      --text: #ffffff;
+      --card-bg: #252525;
+      --accent: #9c27b0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      display: flex;
+    }
+
+    .dashboard {
+      display: flex;
+      width: 100%;
+    }
+
+    .sidebar {
+      width: 250px;
+      background: var(--sidebar);
+      padding: 20px;
+      height: 100vh;
+    }
+
+    .sidebar h2 {
+      color: var(--accent);
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    main {
+      flex: 1;
+      padding: 20px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #add-task-btn {
+      background: var(--accent);
+      color: var(--text);
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #add-task-btn:hover {
+      opacity: 0.8;
+    }
+
+    .courses {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .course {
+      background: var(--card-bg);
+      padding: 20px;
+      margin: 10px 0;
+      border-radius: 8px;
+    }
+
+    .right-panel {
+      width: 300px;
+      padding: 20px;
+    }
+
+    .pomodoro-timer {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .timer-display {
+      font-size: 5rem;
+      font-weight: bold;
+      margin: 10px 0;
+      color: var(--text);
+    }
+
+    .mode-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .mode {
+      background: none;
+      border: 2px solid var(--text);
+      color: var(--text);
+      padding: 8px 15px;
+      cursor: pointer;
+      border-radius: 20px;
+    }
+
+    .mode.active {
+      background: var(--text);
+      color: var(--bg);
+    }
+
+    .timer-controls button {
+      background: var(--accent);
+      color: var(--text);
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin: 5px;
+      border-radius: 5px;
+    }
+
+    .timer-controls button:hover {
+      opacity: 0.8;
+    }
+
+    .dots {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #555;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .dot.done {
+      background-color: #4CAF50;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <aside class="sidebar">
+      <h2>DashboarD</h2>
+      <nav>
+        <ul>
+          <li>Profile</li>
+          <li>Messages</li>
+          <li>Friends</li>
+          <li>Schedule</li>
+          <li>Settings</li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main>
+      <header>
+        <h1>All Tasks</h1>
+        <button id="add-task-btn">+ Add Task</button>
+      </header>
+
+      <section class="courses" id="task-list">
+        <!-- Default Example Task -->
+        <div class="course">
+          <h3>💊 Vitamins <span style="float: right;"></span></h3>
+          <div class="dots" id="vitamin-dots"></div>
+        </div>
+      </section>
+    </main>
+
+    <aside class="right-panel">
+      <div class="pomodoro-timer">
+        <h1 class="title">Pomodoro Timer</h1>
+        <div class="mode-buttons">
+          <button class="mode active" data-mode="pomodoro">Pomodoro</button>
+          <button class="mode" data-mode="short-break">Short Break</button>
+          <button class="mode" data-mode="long-break">Long Break</button>
+        </div>
+        <div class="timer-display">
+          <span id="minutes">25</span>:<span id="seconds">00</span>
+        </div>
+        <div class="timer-controls">
+          <button id="start-pause">Start</button>
+          <button id="reset">Reset</button>
+          <button id="full">Go Fullscreen</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    function createDots(container, count = 30) {
+      for (let i = 0; i < count; i++) {
+        const dot = document.createElement("div");
+        dot.classList.add("dot");
+        dot.addEventListener("click", () => {
+          dot.classList.toggle("done");
+        });
+        container.appendChild(dot);
+      }
+    }
+
+    createDots(document.getElementById("vitamin-dots"));
+
+    document.getElementById("add-task-btn").addEventListener("click", () => {
+      const taskName = prompt("Enter the task name (e.g., Vitamins 💊 or Muscle 💪):");
+      if (!taskName) return;
+
+      const taskList = document.getElementById("task-list");
+      const course = document.createElement("div");
+      course.classList.add("course");
+
+      const heading = document.createElement("h3");
+      heading.innerHTML = taskName;
+
+      const dotContainer = document.createElement("div");
+      dotContainer.classList.add("dots");
+
+      createDots(dotContainer, 30);
+
+      course.appendChild(heading);
+      course.appendChild(dotContainer);
+      taskList.appendChild(course);
+    });
+  </script>
+</body>
+</html>
