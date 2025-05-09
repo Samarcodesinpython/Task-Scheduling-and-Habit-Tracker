@@ -7,7 +7,7 @@
 }
 
 body {
-    background: url(Asset/Screenshot\ 2025-03-09\ at\ 8.55.17\ PM.png);
+    background: url("Assets/Pomo_Background.png");
     position: relative;
     display: flex;
     justify-content: center;
